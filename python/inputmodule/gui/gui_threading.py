@@ -1,7 +1,15 @@
 # Global GUI variables
 STOP_THREAD = False
 DISCONNECTED_DEVS = []
+STATUS = ''
 
+def set_status(status):
+    global STATUS
+    STATUS = status
+
+def get_status():
+    global STATUS
+    return STATUS
 
 def stop_thread():
     global STOP_THREAD
