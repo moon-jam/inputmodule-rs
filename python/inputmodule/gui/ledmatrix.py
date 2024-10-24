@@ -25,7 +25,7 @@ def countdown(dev, seconds):
     set_status('countdown')
     start = datetime.now()
     target = seconds * 1_000_000
-    while True and get_status() == 'countdown':
+    while get_status() == 'countdown':
         if is_thread_stopped() or is_dev_disconnected(dev.device):
             reset_thread()
             return
@@ -51,7 +51,7 @@ def blinking(dev):
     """Blink brightness high/off every second.
     Keeps currently displayed grid"""
     set_status('blinking')
-    while True and get_status() == 'blinking':
+    while get_status() == 'blinking':
         if is_thread_stopped() or is_dev_disconnected(dev.device):
             reset_thread()
             return
@@ -65,7 +65,7 @@ def random_eq(dev):
     """Display an equlizer looking animation with random values."""
     animate(dev, False)
     set_status('random_eq')
-    while True and get_status() == 'random_eq':
+    while get_status() == 'random_eq':
         if is_thread_stopped() or is_dev_disconnected(dev.device):
             reset_thread()
             return
@@ -82,7 +82,7 @@ def clock(dev):
     Loops forever, updating every second"""
     animate(dev, False)
     set_status('clock')
-    while True and get_status() == 'clock':
+    while get_status() == 'clock':
         if is_thread_stopped() or is_dev_disconnected(dev.device):
             reset_thread()
             return

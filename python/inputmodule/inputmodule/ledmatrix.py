@@ -124,7 +124,7 @@ def camera(dev):
         end_x = min(dim[1], start_x + WIDTH)
 
         # Pre-process the video into resized, cropped, grayscale frames
-        while True and get_status() == 'camera':
+        while get_status() == 'camera':
             ret, frame = capture.read()
             if not ret:
                 print("Failed to capture video frames")
@@ -166,7 +166,7 @@ def video(dev, video_file):
         processed = []
 
         # Pre-process the video into resized, cropped, grayscale frames
-        while True and get_status() == 'video':
+        while get_status() == 'video':
             ret, frame = capture.read()
             if not ret:
                 print("Failed to read video frames")
@@ -301,7 +301,7 @@ def breathing(dev):
     Keeps currently displayed grid"""
     set_status('breathing')
     # Bright ranges appear similar, so we have to go through those faster
-    while True and get_status() == 'breathing':
+    while get_status() == 'breathing':
         # Go quickly from 250 to 50
         for i in range(10):
             time.sleep(0.03)
